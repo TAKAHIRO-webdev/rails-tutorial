@@ -1,0 +1,28 @@
+<style>
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+  
+</style>
+
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
